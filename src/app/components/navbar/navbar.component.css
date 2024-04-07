@@ -1,0 +1,36 @@
+nav{
+    padding-left: 5%;
+    padding-right: 5%;
+    font-weight: bold;
+    font-family: "DM Sans", sans-serif;
+}
+nav ul li a:hover{
+    color: #33A69A;
+    transition: .3s;
+}
+nav ul li a{
+    color: #E3E3E3;
+}
+
+.btn1{
+    background-color: #346C73;
+    border: none;
+    padding: 12px 12px;
+    margin-right: 20px;
+}
+.btn2{
+    border: none;
+    background: #E3E3E3;
+    padding: 12px 30px;
+    border-radius: 10px;
+    color: #292C32;
+    font-weight: bold;
+    font-family: "DM Sans", sans-serif;
+}
+.btn1:hover{
+    transform: scale(1.2);
+}
+.btn2:hover{
+    background-color: #2E5559;
+    color: #E3E3E3;
+}
