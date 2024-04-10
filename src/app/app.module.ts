@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { Navbar2Component } from './components/navbar2/navbar2.component';
 import { Footer2Component } from './components/footer2/footer2.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PaymentComponent } from './components/payment/payment.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

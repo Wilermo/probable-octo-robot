@@ -79,7 +79,7 @@ ul li{
     margin-left: 50px;
     margin-right: 50px;
 }
-button {
+.btn{
     background-color: #EDF2F7;
     width: 100%;
     font-family: "poppins", sans-serif;
@@ -89,6 +89,6 @@ button {
     border-radius: 0px;
     height: 70px;
 }
-button:hover{
+.btn:hover{
     background-color: #388089;
 }
