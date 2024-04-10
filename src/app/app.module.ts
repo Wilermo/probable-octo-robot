@@ -12,6 +12,7 @@ import { Navbar2Component } from './components/navbar2/navbar2.component';
 import { Footer2Component } from './components/footer2/footer2.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { DashboardHRComponent } from './components/dashboard-hr/dashboard-hr.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DashboardHRComponent } from './components/dashboard-hr/dashboard-hr.com
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
