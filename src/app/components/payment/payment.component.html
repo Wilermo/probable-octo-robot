@@ -19,53 +19,42 @@
                 </p>
             </div>
             <div class="row px-5 py-4" id="prices">
-                <div class="col py-2">
-                    <div class="Name_Plan d-flex justify-content-between px-5 py-3">
-                        <h3 class="align-left">Trial</h3>
-                        <i class="bi bi-building" style="font-size: 2rem; color: #2D3748;"></i>
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="carousel-item" *ngFor="let group of chunkArray(planes, 3); let i = index"
+                      [class.active]="i === 0">
+                      <div class="row">
+                        <div class="col py-2" *ngFor="let plan of group">
+                            <div class="Name_Plan d-flex justify-content-between px-5 py-3">
+                                <h3 class="align-left">{{plan.name}}</h3>
+                                <i class="bi bi-building" style="font-size: 2rem; color: #2D3748;"></i>
+                            </div>
+                            <h2 class="price text-center py-5">{{plan.price}}</h2>
+                            <h4 class="duration px-4">{{plan.description}}</h4>
+                            <ul class="features py-3  px-5">
+                                <li>{{plan.feature1}}</li>
+                                <li>{{plan.feature2}}</li>
+                                <li>{{plan.feature3}}</li>
+                            </ul>
+                            <button class="btn" style="width: 100%;">Get started today</button>
+                        </div>   
                     </div>
-                    <h2 class="price text-center py-5">$30.00</h2>
-                    <h4 class="duration px-4">Perfecto para empresas en fase de exploración. Accede a nuestra plataforma durante 3 meses para implementar y evaluar si TalentSoft se ajusta a tus necesidades.</h4>
-                    <ul class="features py-3  px-5">
-                        <li>3 Meses de duración</li>
-                        <li>1 Administrador</li>
-                        <li>3 Usuarios</li>
-                    </ul>
-                    <button class="btn" style="width: 100%;">Get started today</button>
-                </div>
-                <div class="col  py-2 px-4" >
-                    <div class="Name_Plan d-flex justify-content-between px-5 py-3">
-                        <h3 class="align-left ">Semestral</h3>
-                        <i class="bi bi-house-heart align-right px-2" style="font-size: 2rem; color: #2D3748;"></i>
+                      </div>
                     </div>
-                    <h2 class="price text-center py-5">$60.00</h2>
-                    <h4 class="duration px-4">Ideal para compromisos a medio plazo. Accede a todas las funciones de TalentSoft durante 6 meses para una gestión eficiente de tu talento humano y procesos de recursos humanos.</h4>
-                    <ul class="features py-3  px-5">
-                        <li>6 Meses de duración</li>
-                        <li>1 Administrador</li>
-                        <li>5 Usuarios</li>
-                    </ul>
-                    <button class="btn">Get started today</button>
-                </div>
-                <div class="col py-2 px-4">
-                    <div class="Name_Plan d-flex justify-content-between px-5 py-3">
-                        <h3 class="align-left">Anual</h3>
-                        <i class="bi bi-building" style="font-size: 2rem; color: #2D3748;"></i>
-                    </div>
-                    <h2 class="price text-center py-5">$120.00</h2>
-                    <h4 class="duration px-4">Nuestro plan estrella para empresas comprometidas a largo plazo con el éxito. Obtén acceso completo a todas las características de TalentSoft durante un año, con un descuento por pago anticipado</h4>
-                    <ul class="features py-3 px-5">
-                        <li>1 año de duración</li>
-                        <li>1 Administrador</li>
-                        <li>6 Usuarios</li>
-                    </ul>
-                    <button class="btn">Get started today</button>
-                </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </div>
             <div class="row text-center">
                 <h5>Todos los planes incluyen una prueba gratuita de <span>14 días</span> sin contratos a largo plazo.
                     Inicie hoy mismo su prueba gratuita y compruebe por sí mismo cómo nuestro sitio web TalentSoft puede
-                    ayudarle a agilizar su proceso de contratación.</h5>
+                    ayudarle a agilizar su proceso de contratación.</h5>
             </div>
 
         </div>
