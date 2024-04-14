@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FormInfo} from "../model/form-info";
 
-
 @Injectable({
   providedIn: 'root'
 })
