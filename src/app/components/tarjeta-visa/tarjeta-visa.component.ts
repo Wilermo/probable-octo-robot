@@ -12,6 +12,7 @@ export class TarjetaVisaComponent implements OnInit {
   confirmBtn!: HTMLButtonElement;
   formSection!: HTMLElement;
   thanksSection!: HTMLElement;
+  errorSection!: HTMLElement;
 
   constructor(private validationService: ValidationService, private sendBService: SendBService) { }
 
@@ -64,8 +65,6 @@ export class TarjetaVisaComponent implements OnInit {
       });
 
       if (isValid) {
-        this.formSection.style.display = 'none';
-        this.thanksSection.style.display = 'block';
         this.enviarDatosAlBackend(this.cardDetails)
       }
     });
@@ -75,6 +74,8 @@ export class TarjetaVisaComponent implements OnInit {
     this.sendBService.enviarDatos(data).subscribe(
       response => {
         console.log('Datos enviados exitosamente al backend:', response);
+        this.formSection.style.display = 'none';
+        this.thanksSection.style.display = 'block';
       },
       error => {
         console.error('Error al enviar datos al backend:', error);
