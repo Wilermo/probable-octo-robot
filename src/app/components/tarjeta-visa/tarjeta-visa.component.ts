@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from 'src/app/service/validation.service';
-
+import { SendBService } from 'src/app/service/send-b.service';
 @Component({
   selector: 'app-tarjeta-visa',
   templateUrl: './tarjeta-visa.component.html',
@@ -13,7 +13,7 @@ export class TarjetaVisaComponent implements OnInit {
   formSection!: HTMLElement;
   thanksSection!: HTMLElement;
 
-  constructor(private validationService: ValidationService) { }
+  constructor(private validationService: ValidationService, private sendBService: SendBService) { }
 
   ngOnInit() {
     const fields = [
@@ -66,7 +66,19 @@ export class TarjetaVisaComponent implements OnInit {
       if (isValid) {
         this.formSection.style.display = 'none';
         this.thanksSection.style.display = 'block';
+        this.enviarDatosAlBackend(this.cardDetails)
       }
     });
+  }
+
+  enviarDatosAlBackend(data: any) {
+    this.sendBService.enviarDatos(data).subscribe(
+      response => {
+        console.log('Datos enviados exitosamente al backend:', response);
+      },
+      error => {
+        console.error('Error al enviar datos al backend:', error);
+      }
+    );
   }
 }
