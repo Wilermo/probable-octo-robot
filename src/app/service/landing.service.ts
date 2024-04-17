@@ -10,13 +10,15 @@ export class LandingService {
 
   private httpOptions = {
     headers: new HttpHeaders({
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Accept": "*/*"
     })
   };
 
   constructor(private http: HttpClient) { }
 
   sendFormInfo(info: FormInfo) : Observable<FormInfo>{
+    console.log("SERB: ", info)
     return this.http.post<FormInfo>("http://localhost:8080/form/send",info,this.httpOptions)
   }
 }

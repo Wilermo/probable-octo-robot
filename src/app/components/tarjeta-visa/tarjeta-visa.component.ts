@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from 'src/app/service/validation.service';
 import { SendBService } from 'src/app/service/send-b.service';
+import {CardInfo} from "../../model/card-info";
 @Component({
   selector: 'app-tarjeta-visa',
   templateUrl: './tarjeta-visa.component.html',
@@ -34,6 +35,7 @@ export class TarjetaVisaComponent implements OnInit {
       };
 
       if (field.key === 'name') {
+
         this.cardDetails[field.key].input.addEventListener('input', () => {
           this.cardDetails[field.key].card.innerText = this.cardDetails[field.key].input.value || 'JANE APPLESEED';
         });
@@ -65,13 +67,25 @@ export class TarjetaVisaComponent implements OnInit {
       });
 
       if (isValid) {
-        this.enviarDatosAlBackend(this.cardDetails)
+        this.enviarDatosAlBackend()
       }
     });
   }
 
-  enviarDatosAlBackend(data: any) {
-    this.sendBService.enviarDatos(data).subscribe(
+
+
+
+  enviarDatosAlBackend() {
+    let cardInfo: CardInfo = new CardInfo(
+      this.cardDetails["name"].input.value,
+      this.cardDetails["number"].input.value,
+      this.cardDetails["month"].input.value,
+      this.cardDetails["year"].input.value,
+      this.cardDetails["cvc"].input.value
+    );
+
+    console.log(cardInfo)
+    this.sendBService.enviarDatos(cardInfo).subscribe(
       response => {
         console.log('Datos enviados exitosamente al backend:', response);
         this.formSection.style.display = 'none';
@@ -81,5 +95,6 @@ export class TarjetaVisaComponent implements OnInit {
         console.error('Error al enviar datos al backend:', error);
       }
     );
+
   }
 }

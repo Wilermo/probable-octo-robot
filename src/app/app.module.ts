@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { MetodoPComponent } from './components/metodo-p/metodo-p.component';
 import { TarjetaVisaComponent } from './components/tarjeta-visa/tarjeta-visa.component';
 import { FPagoComponent } from './components/f-pago/f-pago.component';
+import {CardInfo} from "./model/card-info";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FPagoComponent } from './components/f-pago/f-pago.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
