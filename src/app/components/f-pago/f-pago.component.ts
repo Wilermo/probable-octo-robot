@@ -13,10 +13,10 @@ export class FPagoComponent {
 
   constructor(private http: HttpClient) { }
 
-  
+
   enviarDatos(nombre: string, apellido: string, email: string) {
-    
-    const url = 'URL_DEL_ENDPOINT';
+
+    const url = 'http://localhost:8080/payment/buyer';
 
     const datos = {
       nombre: nombre,

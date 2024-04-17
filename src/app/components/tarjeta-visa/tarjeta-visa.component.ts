@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from 'src/app/service/validation.service';
+<<<<<<< HEAD
 import { Card } from 'src/app/model/Entities/card';
 import { Router } from '@angular/router';
 import { RegistrarTarjetaService } from 'src/app/model/registrarTarjeta.service';
 
+=======
+import { SendBService } from 'src/app/service/send-b.service';
+import {CardInfo} from "../../model/card-info";
+>>>>>>> a78b54fc376e48f71be4bc68d19602b6d0ec4b90
 @Component({
   selector: 'app-tarjeta-visa',
   templateUrl: './tarjeta-visa.component.html',
@@ -39,6 +44,7 @@ export class TarjetaVisaComponent implements OnInit {
       };
 
       if (field.key === 'name') {
+
         this.cardDetails[field.key].input.addEventListener('input', () => {
           this.cardDetails[field.key].card.innerText = this.cardDetails[field.key].input.value || 'JANE APPLESEED';
         });
@@ -70,13 +76,18 @@ export class TarjetaVisaComponent implements OnInit {
       });
 
       if (isValid) {
+<<<<<<< HEAD
         this.enviarDatos()
+=======
+        this.enviarDatosAlBackend()
+>>>>>>> a78b54fc376e48f71be4bc68d19602b6d0ec4b90
       }
     });
   }
 
 
 
+<<<<<<< HEAD
   enviarDatos(): void {
     const token = localStorage.getItem('token');
     if (token) {
@@ -95,5 +106,29 @@ export class TarjetaVisaComponent implements OnInit {
       console.error('No se encontró el token');
       this.router.navigate(['/login']);
     }
+=======
+
+  enviarDatosAlBackend() {
+    let cardInfo: CardInfo = new CardInfo(
+      this.cardDetails["name"].input.value,
+      this.cardDetails["number"].input.value,
+      this.cardDetails["month"].input.value,
+      this.cardDetails["year"].input.value,
+      this.cardDetails["cvc"].input.value
+    );
+
+    console.log(cardInfo)
+    this.sendBService.enviarDatos(cardInfo).subscribe(
+      response => {
+        console.log('Datos enviados exitosamente al backend:', response);
+        this.formSection.style.display = 'none';
+        this.thanksSection.style.display = 'block';
+      },
+      error => {
+        console.error('Error al enviar datos al backend:', error);
+      }
+    );
+
+>>>>>>> a78b54fc376e48f71be4bc68d19602b6d0ec4b90
   }
 }

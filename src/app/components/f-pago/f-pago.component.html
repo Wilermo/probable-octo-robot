@@ -16,7 +16,7 @@
                         <h1>Escribe tu nombre y correo electrónico</h1>
                         <p>Tu pago y usuario quedarán asociados a este correo. Al completar la compra en máximo un día
                             hábil al correo te llegará un link con la activación de tu cuenta</p>
-                        <form (ngSubmit)="onSubmit()">
+                        <div>
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre">
                                 <label for="nombre" class="form-label">Escribe tu nombre</label>
@@ -29,8 +29,8 @@
                                 <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email">
                                 <label for="email" class="form-label">Escribe tu correo electrónico</label>
                             </div>
-                            <button type="submit" class="btn btn-primary" [routerLink]="'/metodo'">Continuar</button>
-                        </form>
+                            <button type="submit" class="btn btn-primary" (click)="onSubmit()" [routerLink]="'/metodo'">Continuar</button>
+                        </div>
                     </div>
                 </div>
             </div>

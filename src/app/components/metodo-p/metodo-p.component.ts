@@ -8,7 +8,12 @@ import { Router } from '@angular/router';
 export class MetodoPComponent {
   constructor(private router: Router) { }
 
-  redirectToRoute() {
+  psePayment() {
+    // Redirige a la ruta deseada cuando se hace clic en el elemento
+    window.location.replace("https://www.pse.com.co/persona")
+  }
+
+  visaPayment() {
     // Redirige a la ruta deseada cuando se hace clic en el elemento
     this.router.navigateByUrl('/visa');
   }
