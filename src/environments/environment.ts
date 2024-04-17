@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
-    loginEmpresa:'http://localhost:8080/',
-    cardURL: "http://localhost:8080/payment/card",
+    loginEmpresa:'',
+    cardURL: "https://canelaapigatewayback-production.up.railway.app/payment/card",
     loginCanela: 'URL-canela'
   };
 
