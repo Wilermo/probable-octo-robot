@@ -8,6 +8,6 @@ import { environment } from 'src/environments/environment';
 })
 export class NavbarComponent {
   redirigirAOtroProyecto() {
-    window.location.href = environment.loginEmpresa;
+    window.location.href = "https://talenthubplatform.vercel.app";
   }
 }
