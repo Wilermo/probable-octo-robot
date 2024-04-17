@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from 'src/app/service/validation.service';
-<<<<<<< HEAD
 import { Card } from 'src/app/model/Entities/card';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { RegistrarTarjetaService } from 'src/app/model/registrarTarjeta.service';
+import { PosibleUsuario } from 'src/app/model/Entities/posibleUsuario';
 
-=======
-import { SendBService } from 'src/app/service/send-b.service';
-import {CardInfo} from "../../model/card-info";
->>>>>>> a78b54fc376e48f71be4bc68d19602b6d0ec4b90
 @Component({
   selector: 'app-tarjeta-visa',
   templateUrl: './tarjeta-visa.component.html',
@@ -17,6 +14,11 @@ import {CardInfo} from "../../model/card-info";
 export class TarjetaVisaComponent implements OnInit {
 
   nuevaTarjeta: Card = new Card();
+  nuevaUT: PosibleUsuario = new PosibleUsuario(); 
+  nombre: string = '';
+  apellido: string = '';
+  email: string = '';
+
 
   cardDetails: { [key: string]: { card: HTMLElement, input: HTMLInputElement, errorDiv: HTMLElement, validation: boolean } } = {};
   confirmBtn!: HTMLButtonElement;
@@ -24,9 +26,14 @@ export class TarjetaVisaComponent implements OnInit {
   thanksSection!: HTMLElement;
   errorSection!: HTMLElement;
 
-  constructor(private validationService: ValidationService, private registrarTarjeta: RegistrarTarjetaService,private router: Router) { }
+  constructor(private route: ActivatedRoute,private validationService: ValidationService, private registrarTarjeta: RegistrarTarjetaService,private router: Router) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.nombre = params['nombre'] || '';
+      this.apellido = params['apellido'] || '';
+      this.email = params['email'] || '';
+    });
     const fields = [
       { key: 'name', selector: '.card__details-name', inputId: 'cardholder', errorSelector: '.form__cardholder--error' },
       { key: 'number', selector: '.card__number', inputId: 'cardNumber', errorSelector: '.form__inputnumber--error' },
@@ -76,59 +83,25 @@ export class TarjetaVisaComponent implements OnInit {
       });
 
       if (isValid) {
-<<<<<<< HEAD
+        this.nuevaUT.nombre = this.nombre; // Asignar el nombre
+        this.nuevaUT.apellido = this.apellido; // Asignar el apellido
+        this.nuevaUT.email = this.email; // Asignar el email
+        this.nuevaUT.tarjeta = this.nuevaTarjeta; // Asignar los datos de la tarjeta
         this.enviarDatos()
-=======
-        this.enviarDatosAlBackend()
->>>>>>> a78b54fc376e48f71be4bc68d19602b6d0ec4b90
       }
     });
   }
 
-
-
-<<<<<<< HEAD
   enviarDatos(): void {
-    const token = localStorage.getItem('token');
-    if (token) {
-      console.log('Datos que se envían:', this.nuevaTarjeta);
-      this.registrarTarjeta.registrarTarjeta(this.nuevaTarjeta, token).subscribe({
-        next: (data) => {
-          console.log('Respuesta recibida:', data);
-          this.router.navigate(['/users']);
-        },
-        error: (err) => {
-          console.error('Error al enviar datos:', err);
-        }
-      });
-      
-    } else {
-      console.error('No se encontró el token');
-      this.router.navigate(['/login']);
-    }
-=======
-
-  enviarDatosAlBackend() {
-    let cardInfo: CardInfo = new CardInfo(
-      this.cardDetails["name"].input.value,
-      this.cardDetails["number"].input.value,
-      this.cardDetails["month"].input.value,
-      this.cardDetails["year"].input.value,
-      this.cardDetails["cvc"].input.value
-    );
-
-    console.log(cardInfo)
-    this.sendBService.enviarDatos(cardInfo).subscribe(
-      response => {
-        console.log('Datos enviados exitosamente al backend:', response);
-        this.formSection.style.display = 'none';
-        this.thanksSection.style.display = 'block';
+    console.log('Datos que se envían:', this.nuevaUT);
+    this.registrarTarjeta.registrarTarjetaConPersona(this.nuevaUT).subscribe({
+      next: (data) => {
+        console.log('Respuesta recibida:', data);
+        this.router.navigate(['/users']);
       },
-      error => {
-        console.error('Error al enviar datos al backend:', error);
+      error: (err) => {
+        console.error('Error al enviar datos:', err);
       }
-    );
-
->>>>>>> a78b54fc376e48f71be4bc68d19602b6d0ec4b90
+    });
   }
 }

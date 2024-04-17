@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Card } from './Entities/card'; // Asegúrate de que la ruta de importación es correcta
+import { PosibleUsuario } from './Entities/posibleUsuario'; // Asegúrate de importar PosibleUsuario
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +11,13 @@ export class RegistrarTarjetaService {
   
   constructor(private http: HttpClient) { }
 
-  // Método para registrar una tarjeta con un token Bearer
-  registrarTarjeta(card: Card, token: string): Observable<Card> {
+  registrarTarjetaConPersona(posibleUsuario: PosibleUsuario): Observable<any> { // Cambia el tipo de retorno a Observable<any>
     const url = `${environment.cardURL}`;
     
-    // Crear los headers necesarios para la autorización
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Content-Type': 'application/json'
     });
 
-    return this.http.post<Card>(url, card, { headers });
+    return this.http.post<any>(url, posibleUsuario, { headers }); // Envía posibleUsuario directamente
   }
 }

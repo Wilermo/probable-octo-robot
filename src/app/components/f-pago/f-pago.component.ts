@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PosibleUsuario } from 'src/app/model/Entities/posibleUsuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-f-pago',
@@ -7,34 +9,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./f-pago.component.css']
 })
 export class FPagoComponent {
-  nombre: string = '';
-  apellido: string = '';
-  email: string = '';
+  posibleUsuario: PosibleUsuario = new PosibleUsuario();
+  
 
-  constructor(private http: HttpClient) { }
-
-
-  enviarDatos(nombre: string, apellido: string, email: string) {
-
-    const url = 'http://localhost:8080/payment/buyer';
-
-    const datos = {
-      nombre: nombre,
-      apellido: apellido,
-      email: email
-    };
-
-    return this.http.post(url, datos);
+  constructor(private http: HttpClient, private router: Router) { }
+  confirmar() {
+    this.router.navigate(['/metodo'], { queryParams: { nombre: this.posibleUsuario.nombre, apellido: this.posibleUsuario.apellido, email: this.posibleUsuario.email } });
   }
+  
 
-  onSubmit() {
-    this.enviarDatos(this.nombre, this.apellido, this.email).subscribe(
-      (response) => {
-        console.log('Datos enviados con éxito:', response);
-      },
-      (error) => {
-        console.error('Error al enviar los datos:', error);
-      }
-    );
-  }
+
+  
 }
