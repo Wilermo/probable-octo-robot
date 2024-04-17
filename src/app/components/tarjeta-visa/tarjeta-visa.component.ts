@@ -91,10 +91,19 @@ export class TarjetaVisaComponent implements OnInit {
       }
     });
   }
-
+  checkboxChanged(event: any) {
+    this.nuevaTarjeta.autoRenewal = event.target.checked;
+    
+    if (this.nuevaTarjeta.autoRenewal) {
+    } else {
+    }
+  }
+  
+  
   enviarDatos(): void {
     console.log('Datos que se envían:', this.nuevaUT);
     this.registrarTarjeta.registrarTarjetaConPersona(this.nuevaUT).subscribe({
+      
       next: (data) => {
         console.log('Respuesta recibida:', data);
         this.router.navigate(['/users']);
