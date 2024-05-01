@@ -4,10 +4,10 @@ export interface company {
     nit: string;
     nameLegalRepresentative: string;
     email: string;
-    phoneCompany: boolean;
+    phoneCompany: number;
     numWorkers: number;
     address: string;
     linkDate: Date;
     subscriptionEndDate: Date;
-    status: boolean;
+    status: string;
 }

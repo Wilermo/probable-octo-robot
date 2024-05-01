@@ -20,18 +20,18 @@
                             hábil al correo te llegará un link con la activación de tu cuenta</p>
                         <div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="nombre" [(ngModel)]="posibleUsuario.nombre" name="nombre">
+                                <input type="text" class="form-control" id="nombre" [(ngModel)]="nuevoUsuario.firstName" name="nombre">
                                 <label for="nombre" class="form-label">Escribe tu nombre</label>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="apellido" [(ngModel)]="posibleUsuario.apellido" name="apellido">
+                                <input type="text" class="form-control" id="apellido" [(ngModel)]="nuevoUsuario.lastName" name="apellido">
                                 <label for="apellido" class="form-label">Escribe tu apellido</label>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="email" [(ngModel)]="posibleUsuario.email" name="email">
+                                <input type="email" class="form-control" id="email" [(ngModel)]="nuevoUsuario.email " name="email">
                                 <label for="email" class="form-label">Escribe tu correo electrónico</label>
                             </div>
-                            <button type="submit" class="btn btn-primary" (click)="confirmar()">Continuar</button>
+                            <button type="submit" class="btn btn-primary" (click)="confirmar(); enviarDatos()">Continuar</button>
                         </div>
                     </div>
                 </div>

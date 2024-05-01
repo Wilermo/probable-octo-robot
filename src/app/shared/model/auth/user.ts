@@ -5,7 +5,7 @@ export class User {
     public email: string = '';
     public username: string = '';
     public password: string = '';
-    public role: string = '';
+    public role: string = 'ADMIN';
   
     constructor();
     constructor(firstName: string, lastName: string, email: string, role: string, id?: string, username?: string, password?: string);

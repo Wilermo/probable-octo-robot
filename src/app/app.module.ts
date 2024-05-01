@@ -15,6 +15,9 @@ import { MetodoPComponent } from './components/metodo-p/metodo-p.component';
 import { TarjetaVisaComponent } from './components/tarjeta-visa/tarjeta-visa.component';
 import { FPagoComponent } from './components/f-pago/f-pago.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar'; // Importa MatSnackBarModule
+import { AddEmpresaComponent } from './components/add-empresa/add-empresa.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MetodoPComponent,
     TarjetaVisaComponent,
     FPagoComponent,
+    AddEmpresaComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [
   ],
