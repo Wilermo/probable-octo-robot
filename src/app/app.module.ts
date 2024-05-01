@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { MetodoPComponent } from './components/metodo-p/metodo-p.component';
 import { TarjetaVisaComponent } from './components/tarjeta-visa/tarjeta-visa.component';
 import { FPagoComponent } from './components/f-pago/f-pago.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FPagoComponent } from './components/f-pago/f-pago.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
   ],

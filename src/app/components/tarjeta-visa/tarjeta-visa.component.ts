@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidationService } from 'src/app/service/validation.service';
+import { ValidationService } from 'src/app/shared/model/service/validation.service';
 import { Card } from 'src/app/model/Entities/card';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
