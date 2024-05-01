@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { PosibleUsuario } from 'src/app/model/Entities/posibleUsuario';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/model/auth/user';
 import { CreateUserService } from 'src/app/shared/model/service/create-user.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-f-pago',
@@ -20,8 +19,13 @@ export class FPagoComponent {
     400: 'Credenciales incorrectas',
     500: 'Error del servidor',
   };
-  constructor(private userService: CreateUserService, private router: Router,private snackBar: MatSnackBar) { }
+  planId: string | null = null;
+  constructor(private userService: CreateUserService, private router: Router,private snackBar: MatSnackBar,private route: ActivatedRoute) { }
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.planId = params['id'];
+      console.log('Plansito ID:', this.planId);
+  });
   }
   enviarDatos(): void {
     this.userService.createUser(this.nuevoUsuario).subscribe(
@@ -44,8 +48,8 @@ export class FPagoComponent {
           confirmButtonText: 'Aceptar',
           confirmButtonColor: '#28a745',
         });
-
-        this.router.navigate(['/metodo'], { queryParams: { userN:this.nuevoUsuario} });
+        console.log('ajaaaaaaaaaaaa',this.planId);
+        this.router.navigate(['/empresa'], { queryParams: { planId: this.planId } });
 
       },
       (error: any) => {

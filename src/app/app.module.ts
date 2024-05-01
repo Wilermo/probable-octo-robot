@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { Landing1Component } from './components/landing1/landing1.component';
@@ -17,6 +17,7 @@ import { FPagoComponent } from './components/f-pago/f-pago.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar'; // Importa MatSnackBarModule
 import { AddEmpresaComponent } from './components/add-empresa/add-empresa.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { AddEmpresaComponent } from './components/add-empresa/add-empresa.compon
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
   ],
