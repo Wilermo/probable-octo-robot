@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {FormInfo} from "../model/form-info";
+import { FormInfo } from 'src/app/model/form-info';
 
 @Injectable({
   providedIn: 'root'
