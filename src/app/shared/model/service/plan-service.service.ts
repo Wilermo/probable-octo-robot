@@ -7,7 +7,7 @@ import { plan } from '../entities/plan';
   providedIn: 'root'
 })
 export class PlanServiceService {
-  private apiUrl = 'https://662dcbbda7dda1fa378b4cfc.mockapi.io/create-aspirantes/plan';
+  private apiUrl = 'https://66328febc51e14d69564cf84.mockapi.io/create-aspirantes/plan';
   constructor(private http: HttpClient) { }
   
   getPlanes(): Observable<plan[]> {

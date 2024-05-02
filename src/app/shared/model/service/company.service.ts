@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class CompanyService {
 
-  private apiUrl = 'URL';
+  private apiUrl = 'https://6632e432f7d50bbd9b47959d.mockapi.io/create-aspirantes/company';
   constructor(private http: HttpClient) { }
 
   
